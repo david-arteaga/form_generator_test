@@ -1,0 +1,25 @@
+<form class="form-container" [formGroup]="competenciaForm" (ngSubmit)="guardar($event)" >
+<input matInput type="hidden" formControlName="id" />
+<mat-form-field >
+<input matInput type="text" formControlName="nombre" placeholder="Nombre" />
+</mat-form-field>
+<mat-form-field >
+<input matInput type="text" formControlName="descripcion" placeholder="Descripcion" />
+</mat-form-field>
+<div class="innerFormContainer" >
+<h5 >
+Resultados aprendizajes
+</h5>
+<div formArrayName="resultadosAprendizajes" *ngFor="let item of CompetenciaForm.get('resultadosAprendizajes').controls; let i = index;" >
+<div [formGroupName]="i" >
+<input matInput type="hidden" formControlName="id" />
+<mat-form-field >
+<input matInput type="text" formControlName="nombre" placeholder="Nombre" />
+</mat-form-field>
+<mat-form-field >
+<input matInput type="text" formControlName="descripcion" placeholder="Descripcion" />
+</mat-form-field>
+</div>
+</div>
+</div>
+</form>
